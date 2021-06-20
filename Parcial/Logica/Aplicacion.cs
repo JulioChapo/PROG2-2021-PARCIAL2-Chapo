@@ -53,11 +53,13 @@ namespace Logica
             return envio;
         }
 
+        //PORQUE EL .15?
         public static double ObtenerComision( double MontoTotal)
         {
             return MontoTotal / (MontoTotal * 0.15);
         }
 
+        //DEBIA SER UN METODO DE EXTENSION POR EJEMPLO PARA UNA CLSAE "COORDENADAS"
         public static double Asignacion(Envio envio)
         {
             Persona destinatario = Personas.Find(x => x.Nombre == envio.Destinatario.Nombre);

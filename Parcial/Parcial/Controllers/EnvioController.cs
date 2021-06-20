@@ -8,15 +8,18 @@ using Logica;
 
 namespace Parcial.Controllers
 {
+    //LA URL QUEDA MAL, NO SE RECIBE EL PARAMETRO EN TODOS LOS METODOS. SE DUPLICA "ENVIOS" EN LA RUTA DE LOS METODOS
     [RoutePrefix("Envios/{CodigoEnvio}")]
     public class EnvioController : ApiController
     {
+        //NO ES NECESARIO
         [Route("Envios")]
         public IHttpActionResult Get()
         {
             return Ok(Aplicacion.Envios);
         }
 
+        //NO ES NECESARIO
         [Route("Envios/{dni}")]
         public IHttpActionResult Get(int dni)
         {
@@ -26,6 +29,7 @@ namespace Parcial.Controllers
             return Ok(Aplicacion.BuscarPersona(dni));
         }
 
+        //DEBERIA RECIBIR LOS PARAMETROS EN EL BODY CON UNA CLASE REQUEST
         [Route("Envios")]
         public IHttpActionResult Post(int dni, DateTime FechaEstimada, [FromBody]string Descripcion)
         {
@@ -37,6 +41,7 @@ namespace Parcial.Controllers
             
         }
 
+        //INCOMPLETO
         [Route("Envios/{codigoSeguimiento}")]
         public IHttpActionResult Put(string codigoSeguimiento, [FromBody]double value)
         {
